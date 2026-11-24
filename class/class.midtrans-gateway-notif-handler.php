@@ -40,7 +40,6 @@ class WC_Gateway_Midtrans_Notif_Handler
     ob_start();
     $input_source = "php://input";
     $raw_notification = json_decode(file_get_contents($input_source), true);
-    header('X-Content-Type-Options: nosniff');
     echo esc_html("Notification Received: \n");
     echo esc_html( print_r($raw_notification, true) );
     WC_Midtrans_Logger::log( print_r($raw_notification, true), 'midtrans-notif' );
@@ -60,8 +59,7 @@ class WC_Gateway_Midtrans_Notif_Handler
   public function checkAndRedirectUserToFinishUrl(){
     if(isset($_COOKIE['wc_midtrans_last_order_finish_url'])){
       // authorized transacting-user
-      // wp_safe_redirect + esc_url_raw to prevent open redirect to an external host
-      wp_safe_redirect( esc_url_raw( wp_unslash( $_COOKIE['wc_midtrans_last_order_finish_url'] ) ) );
+      wp_redirect($_COOKIE['wc_midtrans_last_order_finish_url']);
     }else{
       // else, unauthorized user, redirect to shop homepage by default.
       wp_redirect( get_permalink( wc_get_page_id( 'shop' ) ) );
