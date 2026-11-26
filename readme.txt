@@ -3,7 +3,7 @@ Contributors: yocki, rizdaprasetya
 Tags: midtrans, snap, payment, payment-gateway, credit-card, commerce, e-commerce, woocommerce, veritrans
 Requires at least: 3.9.1
 Tested up to: 6.6.1
-Stable tag: 2.32.3
+Stable tag: 2.32.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,9 @@ The best way please email to support@midtrans.com, but bugs can be reported in o
 4. Configuration page
 
 == Changelog ==
+
+= 2.32.4 - 2026-11-26 =
+* security hardening: escape output of the payment notification endpoint and Midtrans exception messages to prevent reflected XSS
 
 = 2.32.3 - 2024-08-15 =
 * add identifier to handle webhook, get transaction status, and refund using Dana
@@ -281,6 +284,9 @@ The best way please email to support@midtrans.com, but bugs can be reported in o
 * Fullpayment feature
 
 == Upgrade Notice ==
+
+= 2.32.4 - 2026-11-26 =
+* security hardening: escape output of the payment notification endpoint and Midtrans exception messages to prevent reflected XSS
 
 = 2.32.3 - 2024-08-15 =
 * add identifier to handle webhook, get transaction status, and refund using Dana
